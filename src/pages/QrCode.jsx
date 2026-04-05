@@ -2,6 +2,31 @@ import { useState, useRef, useEffect } from 'react'
 import QRCode from 'qrcode'
 import '../styles/QrCode.css'
 
+const drawCenterIcon = (canvas) => {
+  if (!canvas) return
+
+  const ctx = canvas.getContext('2d')
+  const size = canvas.width
+  const iconSize = Math.max(32, size * 0.18)
+  const center = size / 2
+
+  ctx.save()
+  ctx.beginPath()
+  ctx.fillStyle = '#ffffff'
+  ctx.strokeStyle = '#764ba2'
+  ctx.lineWidth = Math.max(4, iconSize * 0.08)
+  ctx.arc(center, center, iconSize / 2, 0, Math.PI * 2)
+  ctx.fill()
+  ctx.stroke()
+
+  ctx.fillStyle = '#764ba2'
+  ctx.font = `${Math.round(iconSize * 0.5)}px Arial`
+  ctx.textAlign = 'center'
+  ctx.textBaseline = 'middle'
+  ctx.fillText('♥', center, center + iconSize * 0.02)
+  ctx.restore()
+}
+
 const QrCodePage = () => {
   const [url, setUrl] = useState('')
   const [qrLoaded, setQrLoaded] = useState(false)
@@ -28,6 +53,7 @@ const QrCodePage = () => {
           light: '#FFFFFF',
         },
       })
+      drawCenterIcon(canvasRef.current)
       setQrLoaded(true)
     } catch (error) {
       console.error('Lỗi tạo QR Code:', error)
