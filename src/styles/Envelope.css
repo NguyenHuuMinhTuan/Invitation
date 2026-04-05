@@ -6,14 +6,15 @@
   align-items: center;
   min-height: 72vh;
   cursor: pointer;
-  padding: 3rem;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
 }
 
 .envelope {
   perspective: 1500px;
   position: relative;
-  width: clamp(320px, 80vw, 520px);
-  height: clamp(240px, 55vw, 360px);
+   width: clamp(260px, 92vw, 500px);
+  aspect-ratio: 4 / 3;
+  height: auto;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.18));
   padding: 12px;
@@ -94,10 +95,11 @@
 
 .envelope-inner {
   position: absolute;
-  top: 14%;
-  left: 8%;
-  width: 84%;
-  height: 72%;
+    top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 80%;
+  padding: clamp(0.5rem, 2vw, 1.2rem);
   background: linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
   border-radius: 14px;
   border: 2px solid rgba(255, 255, 255, 0.7);
@@ -105,7 +107,6 @@
   z-index: 1;
   overflow: hidden;
   transition: transform 1.4s ease, opacity 1.2s ease;
-  padding: 1.2rem;
 }
 
 .airmail-from,
@@ -162,8 +163,8 @@
 }
 
 .airmail-plane svg {
-  width: 68px;
-  height: 68px;
+ width: clamp(40px, 12vw, 68px);
+  height: clamp(40px, 12vw, 68px);
 }
 
 .airmail-plane-text {
@@ -262,17 +263,6 @@
   }
   25%, 75% {
     transform: scale(1.08);
-  }
-}
-
-@keyframes heartBreath {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.95;
-  }
-  50% {
-    transform: scale(1.12);
-    opacity: 1;
   }
 }
 
@@ -775,131 +765,48 @@
   }
 }
 
-/* Opening Animation */
-.envelope.opening .envelope-flap {
-  transform: rotateX(-180deg);
-  animation: flapOpen 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes flapOpen {
-  0% {
-    transform: rotateX(0deg);
-  }
-  50% {
-    transform: rotateX(-90deg);
-  }
-  100% {
-    transform: rotateX(-180deg);
-  }
-}
-
-.envelope.opening .envelope-front {
-  animation: envelopeShake 1.5s ease-out;
-}
-
-@keyframes envelopeShake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-2px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(2px);
-  }
-}
-
-/* Shadow Effect */
-.envelope::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 10%;
-  width: 80%;
-  height: 12px;
-  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2), transparent);
-  border-radius: 50%;
-  animation: shadowPulse 2s ease-in-out infinite;
-  z-index: -1;
-}
-
-@keyframes shadowPulse {
-  0%, 100% {
-    transform: scaleX(1) scaleY(0.8);
-  }
-  50% {
-    transform: scaleX(1.1) scaleY(1);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .envelope {
-    width: 320px;
-    height: 224px;
-  }
-
-  .stamp-circle {
-    width: 50px;
-    height: 50px;
-  }
-
-  .stamp-text {
-    font-size: 7px;
-  }
-
-  .address-line {
-    font-size: 11px;
-  }
-
-  .address-line:first-child {
-    font-size: 12px;
-  }
-
-  .click-text {
-    font-size: 14px;
-  }
-}
-
 @media (max-width: 480px) {
+
   .envelope-container {
-    padding: clamp(0.5rem, 1vw, 1rem);
-    min-height: 50vh;
+    padding: 0.5rem;
+    min-height: 60vh;
   }
 
   .envelope {
-    width: clamp(250px, 85vw, 280px);
-    height: clamp(175px, 60vw, 196px);
+    width: 95vw;
+    aspect-ratio: 4 / 3;
+  }
+
+  .envelope-inner {
+    padding: 0.6rem;
+  }
+
+  .airmail-from,
+  .airmail-to {
+    max-width: 70%;
+    padding: 0.4rem;
+  }
+
+  .airmail-plane {
+    right: 0.5rem;
+  }
+
+  .airmail-plane svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .airmail-plane-text {
+    font-size: 0.6rem;
   }
 
   .stamp-circle {
-    width: clamp(40px, 8vw, 45px);
-    height: clamp(40px, 8vw, 45px);
-    top: clamp(10px, 2vw, 15px);
-    right: clamp(10px, 2vw, 15px);
+    width: 45px;
+    height: 45px;
   }
 
-  .stamp-text {
-    font-size: clamp(5px, 1vw, 6px);
-  }
-
-  .envelope-address {
-    bottom: clamp(15px, 2vw, 20px);
-    left: clamp(15px, 2vw, 20px);
-    right: clamp(15px, 2vw, 20px);
-  }
-
-  .address-line {
-    font-size: clamp(9px, 1.5vw, 10px);
-    margin-bottom: clamp(2px, 0.5vw, 3px);
-  }
-
-  .address-line:first-child {
-    font-size: clamp(10px, 1.8vw, 11px);
-  }
-
-  .click-text {
-    font-size: clamp(11px, 2vw, 12px);
-    padding: clamp(4px, 1vw, 6px) clamp(8px, 2vw, 12px);
+  .wax-seal {
+    width: 55px;
+    height: 55px;
   }
 }

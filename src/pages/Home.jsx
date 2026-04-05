@@ -58,7 +58,7 @@ const Home = () => {
           Một lời mời đặc biệt đang chờ bạn bên trong phong bì tinh tế này
         </p>
         <p className="home-instruction">
-          Nhấp vào phong bì để mở lời mời được cá nhân hóa của bạn
+          Nhấp vào phong bì để thấy được sự bât ngờ bên trong! 🎉
         </p>
         <Envelope recipientName={recipientName} onClick={handleEnvelopeClick} />
       </div>
