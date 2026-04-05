@@ -19,10 +19,10 @@ const drawCenterIcon = (canvas) => {
   ctx.stroke()
 
   ctx.fillStyle = '#764ba2'
-  ctx.font = `${Math.round(iconSize * 0.5)}px Arial`
+  ctx.font = `${Math.round(iconSize * 0.38)}px Arial`
   ctx.textAlign = 'center'
   ctx.textBaseline = 'middle'
-  ctx.fillText('♥', center, center + iconSize * 0.02)
+  ctx.fillText('MT', center, center + iconSize * 0.02)
   ctx.restore()
 }
 

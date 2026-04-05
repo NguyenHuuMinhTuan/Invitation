@@ -442,3 +442,63 @@
     font-size: 13px;
   }
 }
+
+
+.response-btn {
+  position: relative;
+  padding: 12px 28px;
+  font-weight: bold;
+  color: #fff;
+  background: #111;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.3s;
+}
+
+/* Hover nhẹ */
+.response-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Lớp viền chạy */
+.response-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 30px;
+  background: linear-gradient(
+    120deg,
+    #ff6b6b,
+    #feca57,
+    #48dbfb,
+    #1dd1a1,
+    #5f27cd,
+    #ff6b6b
+  );
+  background-size: 300%;
+  z-index: -2;
+  animation: borderRun 4s linear infinite;
+}
+
+/* Lớp nền bên trong */
+.response-btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #111;
+  border-radius: 30px;
+  z-index: -1;
+}
+
+/* Animation chạy màu */
+@keyframes borderRun {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}

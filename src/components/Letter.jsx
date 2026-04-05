@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import FloatingElements from './FloatingElements'
 import '../styles/Letter.css'
 
@@ -18,6 +19,52 @@ const Letter = ({ recipientName = 'Guest', invitationId = null }) => {
       clearTimeout(timer2)
     }
   }, [])
+
+  const handleResponse = () => {
+
+  const getRandomPosition = () => {
+    const positions = ['top', 'top-start', 'top-end', 'center', 'bottom', 'bottom-start', 'bottom-end']
+    return positions[Math.floor(Math.random() * positions.length)]
+  }
+
+  const askAgain = () => {
+    Swal.fire({
+      title: 'Bạn có muốn tham dự không? 🥺',
+      text: 'Đi cho vui nhaaaa 😆',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Đồng ý ❤️',
+      cancelButtonText: 'Không 😢',
+      position: getRandomPosition(),
+      allowOutsideClick: false,
+      backdrop: true,
+      showClass: {
+        popup: 'animate__animated animate__zoomIn'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__zoomOut'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: '🎉 Tuyệt vời!',
+          text: 'Hẹn gặp bạn tại lễ tốt nghiệp!',
+          icon: 'success'
+        }).then(() => {
+          navigate('/thank-you')
+        })
+      } else {
+        askAgain()
+      }
+    })
+    }   
+      askAgain()
+  }
+
+  const getRandomPosition = () => {
+    const positions = ['top', 'top-start', 'top-end', 'center', 'bottom', 'bottom-start', 'bottom-end']
+    return positions[Math.floor(Math.random() * positions.length)]
+  }
 
   return (
     <div className="letter-container">
@@ -61,8 +108,12 @@ const Letter = ({ recipientName = 'Guest', invitationId = null }) => {
 
               {/* Footer */}
               <div className="letter-footer">
+            
                 <p className="regards">Best regards,</p>
                 <p className="signature">Minh Tuấn</p>
+                 <button className="response-btn" onClick={handleResponse}>
+                 Phản hồi 💌
+                </button>
               </div>
             </div>
           </div>

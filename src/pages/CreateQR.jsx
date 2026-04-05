@@ -40,8 +40,9 @@ const CreateQR = () => {
   }, [])
 
   const generateQRCode = (id) => {
-    // Create invitation URL with id as query parameter
-    const invitationUrl = `${window.location.origin}?id=${encodeURIComponent(id)}`
+    // Use the deployed site URL so QR scans open the real website instead of a local preview URL
+    const baseUrl = 'https://invitation-nine-beta.vercel.app'
+    const invitationUrl = `${baseUrl}/?id=${encodeURIComponent(id)}`
     setQrUrl(invitationUrl)
   }
 
