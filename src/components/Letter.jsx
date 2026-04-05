@@ -93,7 +93,7 @@ const Letter = ({ recipientName = 'Guest', invitationId = null }) => {
                 <p className="body-text">
                   <strong>Thời gian:</strong> 8h00 sáng, ngày 19 tháng 4 năm 2026.
                   <br />
-                  <strong>Địa điểm:</strong> 371 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP.HCM (Tòa Audora).
+                  <strong>Địa điểm:</strong> 371 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP.HCM (Tòa Adora).
                 </p>
                 <p className="body-text">
                   Sự có mặt của bạn sẽ là niềm vinh dự và động lực lớn đối với tôi trong ngày
