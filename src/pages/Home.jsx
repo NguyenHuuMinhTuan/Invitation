@@ -62,13 +62,6 @@ const Home = () => {
         </p>
         <Envelope recipientName={recipientName} onClick={handleEnvelopeClick} />
       </div>
-      <button
-        className="admin-btn"
-        onClick={() => navigate('/login')}
-        title="Đăng nhập Quản trị"
-      >
-        Quản trị
-      </button>
     </div>
   )
 }

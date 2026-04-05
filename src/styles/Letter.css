@@ -3,14 +3,14 @@
 .letter-container {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
-    linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 32%),
+    radial-gradient(circle at 85% 25%, rgba(255, 255, 255, 0.18) 0%, transparent 30%),
+    radial-gradient(circle at 20% 70%, rgba(120, 219, 255, 0.22) 0%, transparent 30%),
+    linear-gradient(135deg, #6d5fc7 0%, #7f5dd4 40%, #ca8afb 80%, #f7a1ed 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: clamp(1rem, 2vw, 2rem);
   position: relative;
   overflow: visible;
 }
@@ -18,12 +18,24 @@
 .letter-container::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  top: 12%;
+  left: 8%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.24), transparent 58%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.letter-container::after {
+  content: '';
+  position: absolute;
+  bottom: 8%;
+  right: 6%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 55%);
+  filter: blur(24px);
   pointer-events: none;
 }
 
@@ -31,24 +43,26 @@
   position: relative;
   width: 100%;
   max-width: 900px;
-  min-height: 600px;
+  min-height: clamp(650px, 85vh, 760px);
   height: auto;
   background:
+    radial-gradient(circle at 18% 16%, rgba(102, 126, 234, 0.08) 0%, transparent 18%),
+    radial-gradient(circle at 82% 22%, rgba(236, 72, 153, 0.1) 0%, transparent 20%),
     linear-gradient(145deg,
       #fefefe 0%,
       #f8f9fa 25%,
       #f1f3f4 50%,
-      #e8eaed 75%,
-      #dadce0 100%);
-  border-radius: 16px;
+      #e8eaf6 75%,
+      #d9dde8 100%);
+  border-radius: clamp(8px, 2vw, 16px);
   box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 35px 70px rgba(0, 0, 0, 0.18),
     inset 0 2px 0 rgba(255, 255, 255, 0.6),
     inset 0 -2px 0 rgba(189, 193, 198, 0.2),
     inset 0 0 0 2px rgba(255, 255, 255, 0.8);
   perspective: 1200px;
   overflow: visible;
-  border: 3px solid #bdc1c6;
+  border: clamp(1px, 0.5vw, 3px) solid rgba(189, 193, 198, 0.85);
   backdrop-filter: blur(1px);
 }
 
@@ -77,16 +91,16 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 4rem 0 4.5rem;
+  padding: 4.5rem 0 5rem;
 }
 
 .paper {
-  width: 85%;
+  width: 90%;
   max-width: 750px;
   background:
     linear-gradient(180deg, #fbfbfb 0%, #ffffff 42%, #f6f7fb 100%);
-  padding: 4.5rem 3rem 3rem;
-  border-radius: 16px;
+  padding: clamp(2rem, 4vw, 4.5rem) clamp(1.5rem, 3vw, 3rem) clamp(1.5rem, 2vw, 3rem);
+  border-radius: clamp(8px, 2vw, 16px);
   border: 1px solid rgba(151, 164, 185, 0.18);
   box-shadow:
     0 25px 40px rgba(0, 0, 0, 0.12),
@@ -133,10 +147,10 @@
 
 .letter-medal {
   position: absolute;
-  top: 24px;
-  left: 24px;
-  width: 96px;
-  height: 96px;
+  top: clamp(12px, 2vw, 24px);
+  left: clamp(12px, 2vw, 24px);
+  width: clamp(60px, 12vw, 96px);
+  height: clamp(60px, 12vw, 96px);
   background-image: url('https://png.pngtree.com/png-clipart/20230914/original/pngtree-olympic-gold-medal-vector-png-image_11400099.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -264,7 +278,7 @@
 
 .recipient-name {
   font-family: 'Dancing Script', cursive;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   color: #211e1f;
   margin: 0;
   font-weight: 500;
@@ -274,10 +288,10 @@
 
 .body-text {
   font-family: 'Playfair Display', serif;
-  font-size: 1.06rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.06rem);
   color: #3b3a40;
   line-height: 1.85;
-  margin-bottom: 1.6rem;
+  margin-bottom: clamp(1rem, 2vw, 1.6rem);
   text-align: justify;
   text-justify: inter-word;
   animation: slideInRight 0.8s ease-out forwards;
@@ -317,7 +331,7 @@
 
 .signature {
   font-family: 'Dancing Script', cursive;
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
   color: #6b5b95;
   margin: 0;
   font-weight: 500;

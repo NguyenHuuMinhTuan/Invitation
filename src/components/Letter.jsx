@@ -55,10 +55,7 @@ const Letter = ({ recipientName = 'Guest', invitationId = null }) => {
                 <p className="body-text">
                   Mong bạn dành chút thời gian đến chung vui cùng gia đình và bạn bè,
                   cùng trao nhau những lời chúc, kỷ niệm tươi sáng và niềm hy vọng mới.
-                </p>
-                <p className="body-text">
-                  Vui lòng xác nhận trước ngày 15 tháng 4 để tôi chuẩn bị chu đáo nhất cho buổi lễ.
-                  Sự hiện diện của bạn sẽ làm cho buổi ngày càng thêm trọn vẹn và ấm áp.
+                   Sự hiện diện của bạn sẽ làm cho buổi ngày càng thêm trọn vẹn và ấm áp.
                 </p>
               </div>
 
