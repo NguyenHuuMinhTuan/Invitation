@@ -91,7 +91,7 @@ const Letter = ({ recipientName = 'Guest', invitationId = null }) => {
                   phúc nếu có sự hiện diện của bạn trong khoảnh khắc ý nghĩa này.
                 </p>
                 <p className="body-text">
-                  <strong>Thời gian:</strong> 8h00 sáng, ngày 19 tháng 4 năm 2026.
+                  <strong>Thời gian:</strong> 12h00 trưa, ngày 19 tháng 4 năm 2026.
                   <br />
                   <strong>Địa điểm:</strong> 371 Nguyễn Kiệm, Phường 3, Quận Gò Vấp, TP.HCM (Tòa Adora).
                 </p>

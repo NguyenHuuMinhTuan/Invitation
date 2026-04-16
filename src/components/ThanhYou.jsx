@@ -1,3 +1,4 @@
+import parkImg from '../assets/park.png'
 const ThankYou = () => {
   return (
     <div style={styles.container}>
@@ -19,11 +20,11 @@ const ThankYou = () => {
           <li>Hoặc gửi tại khu vực gần <b>nhà hàng Adora</b></li>
         </ul>
 
-        <img
-          src="/src/assets/park.png"
-          alt="Nơi gửi xe"
-          style={styles.image}
-        />
+       <img
+        src={parkImg}
+        alt="Nơi gửi xe"
+        style={styles.image}
+      />
 
         <p style={styles.footer}>
           Hẹn gặp bạn tại buổi lễ nha 🎓✨
@@ -46,13 +47,14 @@ const styles = {
     background: '#fff',
     padding: '40px',
     borderRadius: '20px',
-    width: '400px',
+    width: '80%',
     textAlign: 'center',
     boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
   },
   title: {
     fontSize: '28px',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    color: '#333'
   },
   subtitle: {
     fontSize: '16px',
