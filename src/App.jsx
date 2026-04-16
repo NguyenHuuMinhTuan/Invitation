@@ -25,7 +25,7 @@ function App() {
           />
           <Route path="/QrCode" element={<QrCode />} />
           <Route path="*" element={<Home />} />
-          <Route path="/thanh-you" element={<ThanhYou />} />
+          <Route path="/thank-you" element={<ThanhYou />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
